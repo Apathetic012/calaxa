@@ -50,11 +50,6 @@ module.exports = function(grunt) {
           client: false
         }
       }
-    },
-    growl: {
-      notify: {
-        message: 'foo'
-      }
     }
   })
 
@@ -63,7 +58,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-regarde')
   grunt.loadNpmTasks('grunt-bg-shell')
   grunt.loadNpmTasks('grunt-jade')
-  grunt.loadNpmTasks('grunt-growl')
 
   grunt.registerTask('default', ['livereload-start', 'bgShell:compileSass', 'jade:compile', 'regarde'])
 }
