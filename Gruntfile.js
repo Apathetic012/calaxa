@@ -53,7 +53,8 @@ module.exports = function(grunt) {
     },
     copy: {
       main: {
-        src: ['font', 'img'],
+        expand: true,
+        src: ['font/*', 'img/*', 'js/*'],
         dest: 'public/'
       }
     }
