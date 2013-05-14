@@ -60,4 +60,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jade')
 
   grunt.registerTask('default', ['livereload-start', 'bgShell:compileSass', 'jade:compile', 'regarde'])
+  grunt.registerTask('build', ['bgShell:compileSass', 'jade:compile'])
 }
