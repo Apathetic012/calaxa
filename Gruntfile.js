@@ -6,10 +6,10 @@ module.exports = function(grunt) {
         bg: true
       },
       watchJade: {
-        cmd: 'grunt watch:jade'
+        cmd: 'grunt regarde:jade'
       },
       watchHtml: {
-        cmd: 'grunt watch:html'
+        cmd: 'grunt regarde:html'
       },
       compileSass: {
         cmd: 'compass compile --force',
@@ -23,13 +23,14 @@ module.exports = function(grunt) {
         }
       }
     },
-    watch: {
+    regarde: {
       sass: {
-        files: 'sass/*',
-        tasks: 'compass:compile',
-        options: {
-          livereload: true
-        }
+        files: ['sass/*', 'sass/module/*'],
+        tasks: 'compass:compile'
+      },
+      css: {
+        files: 'public/css/*',
+        tasks: 'livereload'
       },
       jade: {
         files: 'jade/*',
@@ -37,10 +38,7 @@ module.exports = function(grunt) {
       },
       html: {
         files: 'public/*.html',
-        tasks: 'growl:notify',
-        options: {
-          nospawn: true
-        }
+        tasks: 'livereload'
       }
     },
     jade: {
@@ -60,19 +58,12 @@ module.exports = function(grunt) {
     }
   })
 
-  grunt.event.on('watch', function(action, path) {
-    var match = path.match(/public\/(.*\.html)/)
-    if (match instanceof Array) {
-      grunt.config(['growl', 'notify', 'message'], match[1] + ' updated.')
-    }
-  })
-
   grunt.loadNpmTasks('grunt-contrib-livereload')
   grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-regarde')
   grunt.loadNpmTasks('grunt-bg-shell')
   grunt.loadNpmTasks('grunt-jade')
   grunt.loadNpmTasks('grunt-growl')
 
-  grunt.registerTask('default', ['bgShell:compileSass', 'jade:compile', 'bgShell:watchJade', 'bgShell:watchHtml', 'watch:sass'])
+  grunt.registerTask('default', ['livereload-start', 'bgShell:compileSass', 'jade:compile', 'regarde'])
 }
