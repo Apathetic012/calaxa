@@ -1,0 +1,16 @@
+{
+  "name": "calaxa",
+  "version": "0.0.1",
+  "main": "index.js",
+  "tags": [
+    "yeoman-generator", "sass", "compass", "watch", "grunt", "jade", "livereload"
+  ],
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-livereload": "0.1.2",
+    "grunt-contrib-compass": "0.2.0",
+    "grunt-contrib-watch": "0.4.3",
+    "grunt-jade": "0.4.0",
+    "grunt-bg-shell": ""
+  }
+}
