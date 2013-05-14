@@ -7,7 +7,7 @@ Hmm
 ---
 
 - Grunt.js
- - watch, jade, livereload, compass
+ - watch, jade, livereload, compass, notify
 - SASS
  - Susy
 
