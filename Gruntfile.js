@@ -50,15 +50,22 @@ module.exports = function(grunt) {
           client: false
         }
       }
+    },
+    copy: {
+      main: {
+        src: ['font', 'img'],
+        dest: 'public/'
+      }
     }
   })
 
   grunt.loadNpmTasks('grunt-contrib-livereload')
   grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-regarde')
   grunt.loadNpmTasks('grunt-bg-shell')
   grunt.loadNpmTasks('grunt-jade')
 
-  grunt.registerTask('default', ['livereload-start', 'bgShell:compileSass', 'jade:compile', 'regarde'])
-  grunt.registerTask('build', ['bgShell:compileSass', 'jade:compile'])
+  grunt.registerTask('default', ['livereload-start', 'bgShell:compileSass', 'jade:compile', 'copy', 'regarde'])
+  grunt.registerTask('build', ['bgShell:compileSass', 'jade:compile', 'copy'])
 }
