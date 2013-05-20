@@ -28,9 +28,13 @@ module.exports = function(grunt) {
         files: ['sass/*', 'sass/module/*'],
         tasks: 'compass:compile'
       },
-      css: {
-        files: 'public/css/*',
+      publicAssets: {
+        files: 'public/*/*',
         tasks: 'livereload'
+      },
+      assets: {
+        files: ['js/*', 'img/*', 'font/*'],
+        tasks: 'copy:main'
       },
       jade: {
         files: 'jade/*',
